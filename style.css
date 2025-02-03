@@ -1,50 +1,62 @@
-/* General reset to remove default margins */
-* {
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background-color: #222;
 }
 
-/* Container Styling */
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Section Heading */
-h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #eaeaea;
-    padding-bottom: 5px;
+main {
+    flex: 1;
 }
 
-/* Form and Fieldset Styling */
+h1 {
+    text-align: center;
+    color: #f39c12;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
 form {
-    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #333;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-top: 6px solid #f39c12;
 }
 
 fieldset {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 15px;
+    border: none;
+    padding: 0;
+    margin-bottom: 40px;
 }
 
 legend {
-    font-weight: bold;
-    padding: 0 5px;
+    font-weight: 900;
+    color: white;
+    font-size: 1.5rem;
+    border-bottom: 3px solid #f39c12;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    display: block;
 }
 
 label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
     display: block;
-    margin-bottom: 5px;
+    color: #f39c12;
 }
 
 input[type="text"],
@@ -52,54 +64,179 @@ input[type="email"],
 input[type="tel"],
 textarea {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    padding: 15px;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: 2px solid #555;
+    box-sizing: border-box;
+    background-color: #444;
+    font-size: 1.1rem;
+    color: #eee;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-textarea {
-    height: 100px;
+input:focus,
+textarea:focus {
+    border-color: #f39c12;
+    outline: none;
+    box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
 }
 
-/* Button Styling */
 button {
-    background-color: #007bff;
-    color: white;
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background-color: #f39c12;
+    color: #222;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e67e22;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
-/* Resume Content Styling */
-#resume-content {
+#resumeOutput {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    border: 3px solid #f39c12;
+    border-radius: 16px;
+    background-color: #333;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    color: #eee;
+}
+
+#resumeOutput h2 {
+    text-align: center;
+    color: #f39c12;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+#resumeOutput h3 {
+    color: #f39c12;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#resumeOutput h3::before {
+    content: "✦";
+    color: #f39c12;
+    margin-right: 15px;
+    font-size: 1.5rem;
+}
+
+#resumeOutput p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+#resumeOutput ul {
+    padding-left: 25px;
+}
+
+#resumeOutput ul li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ccc;
+    position: relative;
+    padding-left: 25px;
+}
+
+#resumeOutput ul li::before {
+    content: "●";
+    color: #f39c12;
+    position: absolute;
+    left: 0;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+.editable {
+    border: 2px solid #555;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    min-height: 200px; /* Ensures there's enough space to see the content */
-    cursor: text; /* Indicates the content is editable */
+    background-color: #444;
+    transition: background-color 0.3s;
 }
 
-/* Editable Section Styling */
-#resume-content[contenteditable="true"] {
-    border: 2px dashed #007bff; /* Visual indication that the content is editable */
+.editable:hover {
+    background-color: #555;
 }
 
-/* Basic Mobile Design */
+button.edit {
+    display: block;
+    max-width: 250px;
+    margin: -10px auto 15px auto; /* Adjust margin-top to move button upwards */
+    padding: 12px;
+    background-color: rgba(207, 203, 203, 0.349);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button.edit:hover {
+    background-color: rgb(185, 181, 181);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsiveness */
 @media (max-width: 768px) {
-    .container {
-        padding: 15px;
-        width: 90%;
+    h1 {
+        font-size: 2.2rem;
     }
 
-    h2 {
-        font-size: 22px;
+    button {
+        font-size: 1.1rem;
+        padding: 14px;
+    }
+
+    #resumeOutput {
+        padding: 25px;
+    }
+
+    #resumeOutput h2 {
+        font-size: 1.8rem;
+    }
+
+    #resumeOutput h3 {
+        font-size: 1.4rem;
+    }
+
+    #resumeOutput p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    form, #resumeOutput {
+        padding: 20px;
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    h1 {
+        font-size: 1.8rem;
     }
 
     input[type="text"],
@@ -107,10 +244,23 @@ button:hover {
     input[type="tel"],
     textarea {
         padding: 12px;
+        font-size: 1rem;
     }
 
     button {
-        width: 100%;
+        font-size: 1rem;
         padding: 12px;
+    }
+
+    #resumeOutput h2 {
+        font-size: 1.5rem;
+    }
+
+    #resumeOutput h3 {
+        font-size: 1.2rem;
+    }
+
+    #resumeOutput p {
+        font-size: 1rem;
     }
 }
